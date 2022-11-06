@@ -8,7 +8,7 @@ class Jogo
 private:
     sf::RenderWindow window;
 
-    Jogador jogador1;
+    Jogador jogador1,jogador2;
    
 public:
     Jogo();
