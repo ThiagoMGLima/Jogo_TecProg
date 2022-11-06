@@ -1,4 +1,5 @@
 #include "Jogador.h"
+#include <iostream>
 
 Jogador::Jogador()
 {
@@ -23,8 +24,4 @@ void Jogador::move()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         body.move(sf::Vector2f(0.f, -0.1f));
     }
-
-    window.clear();
-    window.draw(shape);
-    window.display();
 }

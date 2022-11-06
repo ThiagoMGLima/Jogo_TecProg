@@ -5,7 +5,7 @@
 
 int main()
 {
-    Jogo Jogar;
+    Jogo Executar;
     
 }
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração

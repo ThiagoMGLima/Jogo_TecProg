@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
-class Entidade{
+class Entidade {
 
 protected:
 	sf::RectangleShape body;
@@ -10,5 +10,11 @@ protected:
 public:
 	Entidade();
 	~Entidade();
-};
 
+	void setWindow(sf::RenderWindow* window) {
+		this->window = window;
+	}
+	void draw() {
+		window->draw(body);
+	}
+};
