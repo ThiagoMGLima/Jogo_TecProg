@@ -6,7 +6,7 @@ private:
 
 public:
 	Jogador();
-	~Jogador();
 	void move();
+	~Jogador();
 };
 

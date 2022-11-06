@@ -1,10 +1,8 @@
 #include "Jogo.h"
 
 Jogo::Jogo():
-	window(sf::VideoMode(400, 400), "Jogo"){
-
-	shape.setFillColor(sf::Color::Green);
-	
+	window(sf::VideoMode(1200, 800), "Jogo"){
+    jogador1.setWindow(&window);
     Executar();
 
 }
@@ -23,5 +21,9 @@ void Jogo::Executar()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        jogador1.move();
+        window.clear();
+        jogador1.draw();
+        window.display();
     }
 }
