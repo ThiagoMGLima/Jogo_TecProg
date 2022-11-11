@@ -7,3 +7,9 @@ Entidade::~Entidade()
 {
 
 }
+
+const sf::RectangleShape Entidade::getCorpo()
+{
+	return sf::RectangleShape();
+}
+

@@ -1,19 +1,22 @@
 #pragma once
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include"Jogador.h"
 
-class Jogo
-{
-private:
-    sf::RenderWindow window;
+#include "Inimigo.h"
+#include "Jogador.h"
 
-    Jogador jogador1,jogador2;
-   
-public:
-    Jogo();
-    ~Jogo();
 
-    void Executar();
 
-};
+    class Jogo
+    {
+    private:
+        sf::RenderWindow window;
+
+        std::vector <Personagem*> personagens;
+    
+    public:
+        Jogo();
+        ~Jogo();
+
+
+        void Executar();
+
+    };

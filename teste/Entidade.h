@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
+
 class Entidade {
 
 protected:
@@ -14,6 +15,9 @@ public:
 	void setWindow(sf::RenderWindow* window) {
 		this->window = window;
 	}
+	
+	const sf::RectangleShape getCorpo();
+
 	void draw() {
 		window->draw(body);
 	}
