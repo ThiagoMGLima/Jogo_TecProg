@@ -5,18 +5,11 @@ Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam) //contrut
     body.setPosition(pos);
 }
 
-Personagem::Personagem()//constr sem parametros
-:body() 
+Personagem::Personagem()//constr sem parametros 
 {
-
 }
 
 Personagem::~Personagem() 
 {
 
 };
-
-const sf::RectangleShape Personagem::getCorpo()
-{
-    return sf::RectangleShape();
-}

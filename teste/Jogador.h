@@ -8,9 +8,8 @@ private:
 	void Inicializa();
 public:
 	Jogador(const sf::RectangleShape body);
-	Jogador(sf::Vector2f pos, sf::Vector2f tam );
+	Jogador(sf::Vector2f pos, sf::Vector2f tam);
 	Jogador();
 	~Jogador();
 	virtual void move();
 };
-

@@ -7,10 +7,10 @@
 Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador):
 	Personagem(pos,tam),relogio(),jogador(jogador)
 {
-	body.setFillColor(sf::Color::Red);
+	body.setFillColor(sf::Color::Blue);
 	Inicializa();
 	srand(time(NULL));
-	moveAle = rand() % 4;
+	moveAle = rand() % 4;  //Movimento aleatorio caso nao saiba de nenhum jogador por perto
 }
 
 Inimigo::~Inimigo()
@@ -59,7 +59,7 @@ void Inimigo::movimentoAle()
 	}
 }
 
-void Inimigo::move()		{
+void Inimigo::move(){
 	
 	sf::Vector2f posJogador = jogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = getCorpo().getPosition();

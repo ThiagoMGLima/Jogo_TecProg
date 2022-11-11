@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />

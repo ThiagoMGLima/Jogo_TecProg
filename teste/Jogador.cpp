@@ -2,7 +2,7 @@
 #include <iostream>
 
 void Jogador::Jogador::Inicializa() { 
-    vel = sf::Vector2f(0.1f, 0.1f);
+    vel = sf::Vector2f(0.5f, 0.5f);
     ar = false;
 }
 
