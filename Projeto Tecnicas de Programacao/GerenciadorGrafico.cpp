@@ -1,38 +1,56 @@
 #include "GerenciadorGrafico.h"
 
-NomeJogo::Gerenciador::GerenciadorGrafico::GerenciadorGrafico()
+NomeJogo::Gerenciador::GerenciadorGrafico* NomeJogo::Gerenciador::GerenciadorGrafico::pGerenciadorGrafico = nullptr;
+
+NomeJogo::Gerenciador::GerenciadorGrafico::GerenciadorGrafico() :
+	window(new sf::RenderWindow(sf::VideoMode(800.0f, 600.0f), "Jogo"))
 {
+
 }
 
 NomeJogo::Gerenciador::GerenciadorGrafico::~GerenciadorGrafico()
 {
+	if (window) {
+		delete(window);
+		window = nullptr;
+	}
 }
 
 
-void NomeJogo::Gerenciador::GerenciadorGrafico::setWindow(sf::RenderWindow* window, sf::RenderWindow* janela) {
-	window = janela;
+NomeJogo::Gerenciador::GerenciadorGrafico* NomeJogo::Gerenciador::GerenciadorGrafico::getGerenciadorGrafico()
+{
+	if (pGerenciadorGrafico == nullptr) {
+
+		return new NomeJogo::Gerenciador::GerenciadorGrafico();
+	}
+	return pGerenciadorGrafico;
 }
 
-void NomeJogo::Gerenciador::GerenciadorGrafico::desenhaNaTela(sf::RenderWindow* window, sf::RectangleShape body) {
+sf::RenderWindow* NomeJogo::Gerenciador::GerenciadorGrafico::getWindow()
+{
+	return window;
+}
+
+void NomeJogo::Gerenciador::GerenciadorGrafico::desenhaNaTela(sf::RectangleShape body) {
 	window->draw(body);
 }
 
-void NomeJogo::Gerenciador::GerenciadorGrafico::LimparJanela(sf::RenderWindow* window)
+void NomeJogo::Gerenciador::GerenciadorGrafico::LimparJanela()
 {
 	window->clear();
 }
 
-void NomeJogo::Gerenciador::GerenciadorGrafico::mostrarNaTela(sf::RenderWindow* window)
+void NomeJogo::Gerenciador::GerenciadorGrafico::mostrarNaTela()
 {
 	window->display();
 }
 
-void NomeJogo::Gerenciador::GerenciadorGrafico::FechaJanela(sf::RenderWindow* window)
+void NomeJogo::Gerenciador::GerenciadorGrafico::FechaJanela()
 {
 	window->close();
 }
 
-bool NomeJogo::Gerenciador::GerenciadorGrafico::verificaJanelaAberta(sf::RenderWindow* window)
+bool NomeJogo::Gerenciador::GerenciadorGrafico::verificaJanelaAberta()
 {
 	if (window->isOpen()) {
 		return true;
