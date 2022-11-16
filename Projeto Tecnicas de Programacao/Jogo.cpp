@@ -1,10 +1,12 @@
 #include "Jogo.h"
 
-Jogo::Jogo() :personagens(), pGerenciadorGrafico(pGerenciadorGrafico->getGerenciadorGrafico())
+Jogo::Jogo() :personagens(), pGerenciadorGrafico(pGerenciadorGrafico->getGerenciadorGrafico()),
+pGerenciadorEvento(pGerenciadorEvento->getGerenciadorEvento())
 {
 
 
     Jogador* jogador = new Jogador(sf::Vector2f(100.0f, 200.0f), sf::Vector2f(50.0f, 50.0f));
+    pGerenciadorEvento->setJogador(jogador);
     Inimigo* inimigo = new Inimigo(sf::Vector2f(100.0f, 100.0f), sf::Vector2f(50.0f, 50.0f), jogador);
 
     Personagem* p1 = static_cast<Personagem*>(jogador);
@@ -25,19 +27,12 @@ void Jogo::Executar()
 {
     while (pGerenciadorGrafico->verificaJanelaAberta())
     {
-        sf::Event event;
-        if (pGerenciadorGrafico->getWindow()->pollEvent(event))
-        {
-            //Fecha o jogo quando é pressionado o Esc(Escape) ou o X da janela
-            if (event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape)
-                pGerenciadorGrafico->FechaJanela();
-        }
-
-
-
+        pGerenciadorEvento->executar();
+        // Limpando a janela
+        pGerenciadorGrafico->LimparJanela();
         for (int i = 0; i < personagens.size(); i++) {
             // Jogador se move
-            personagens.at(i)->move();
+            personagens.at(i)->atualizar();
 
             // Desenhando o Inimigo na janela
             pGerenciadorGrafico->desenhaNaTela(personagens.at(i)->getCorpo());
@@ -45,8 +40,5 @@ void Jogo::Executar()
 
         // Mostrando a janela
         pGerenciadorGrafico->mostrarNaTela();
-
-        // Limpando a janela
-        pGerenciadorGrafico->LimparJanela();
     }
 }

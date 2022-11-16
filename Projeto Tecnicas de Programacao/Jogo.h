@@ -10,6 +10,7 @@ class Jogo
 private:
     // Gerenciadores
     NomeJogo::Gerenciador::GerenciadorGrafico* pGerenciadorGrafico;
+    NomeJogo::Gerenciador::GerenciadorEvento* pGerenciadorEvento;
 
     std::vector <Personagem*> personagens;
 

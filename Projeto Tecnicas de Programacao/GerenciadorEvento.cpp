@@ -5,7 +5,6 @@ NomeJogo::Gerenciador::GerenciadorEvento* NomeJogo::Gerenciador::GerenciadorEven
 NomeJogo::Gerenciador::GerenciadorEvento::GerenciadorEvento() :
     pGrafico(pGrafico->getGerenciadorGrafico())
 {
-
 }
 
 NomeJogo::Gerenciador::GerenciadorEvento::~GerenciadorEvento() {
@@ -24,10 +23,10 @@ void NomeJogo::Gerenciador::GerenciadorEvento::setJogador(Jogador* pJogador) {
 
 void NomeJogo::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyboard::Key tecla) {
     if (tecla == sf::Keyboard::A) {
-        pJogador->move();
+        pJogador->andar(true);
     }
     else if (tecla == sf::Keyboard::D) {
-        pJogador->move();
+        pJogador->andar(false);
     }
     else if (tecla == sf::Keyboard::Escape) {
         pGrafico->FechaJanela();
@@ -35,7 +34,10 @@ void NomeJogo::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyb
 }
 
 void NomeJogo::Gerenciador::GerenciadorEvento::verificaTeclaSolta(sf::Keyboard::Key tecla) {
-
+    // Condicional para ler a tecla solta
+    if (tecla == sf::Keyboard::A || tecla == sf::Keyboard::D) {
+        pJogador->parar();
+    }
 }
 
 void NomeJogo::Gerenciador::GerenciadorEvento::executar() {

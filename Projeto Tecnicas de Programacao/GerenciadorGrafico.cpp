@@ -21,7 +21,7 @@ NomeJogo::Gerenciador::GerenciadorGrafico* NomeJogo::Gerenciador::GerenciadorGra
 {
 	if (pGerenciadorGrafico == nullptr) {
 
-		return new NomeJogo::Gerenciador::GerenciadorGrafico();
+		pGerenciadorGrafico = new GerenciadorGrafico();
 	}
 	return pGerenciadorGrafico;
 }

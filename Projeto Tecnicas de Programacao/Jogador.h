@@ -11,5 +11,5 @@ public:
 	Jogador(sf::Vector2f pos, sf::Vector2f tam);
 	Jogador();
 	~Jogador();
-	virtual void move();
+	void atualizar();
 };

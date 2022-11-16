@@ -59,7 +59,7 @@ void Inimigo::movimentoAle()
 	}
 }
 
-void Inimigo::move() {
+void Inimigo::atualizar() {
 
 	sf::Vector2f posJogador = jogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = getCorpo().getPosition();
