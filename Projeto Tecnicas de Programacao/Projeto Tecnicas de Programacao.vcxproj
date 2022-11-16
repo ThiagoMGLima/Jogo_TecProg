@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{26f532a0-8063-48b4-a257-9c6a3f3826c0}</ProjectGuid>
+    <ProjectGuid>{22f3b228-81e3-45cb-972a-a4037955ef52}</ProjectGuid>
     <RootNamespace>ProjetoTecnicasdeProgramacao</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -105,14 +105,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -147,19 +147,25 @@
   <ItemGroup>
     <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="GerenciadorEvento.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="Lista.cpp" />
+    <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Projeto Tecnicas de Programacao.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Entidade.h" />
+    <ClInclude Include="GerenciadorEvento.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="Personagem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
