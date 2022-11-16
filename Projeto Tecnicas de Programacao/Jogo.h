@@ -3,7 +3,7 @@
 #include "GerenciadorEvento.h"
 #include "Inimigo.h"
 #include "Jogador.h"
-
+#include "ListaEntidade.h"
 
 class Jogo
 {
@@ -12,11 +12,12 @@ private:
     NomeJogo::Gerenciador::GerenciadorGrafico* pGerenciadorGrafico;
     NomeJogo::Gerenciador::GerenciadorEvento* pGerenciadorEvento;
 
-    std::vector <Personagem*> personagens;
+    ListaEntidade listaEnt;
 
 public:
     Jogo();
     ~Jogo();
     void Executar();
+    void InstaciarEntidades();
 
 };

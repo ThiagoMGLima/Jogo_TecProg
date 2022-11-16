@@ -13,13 +13,12 @@ protected:
     sf::Clock relogio;
     float dt;
 public:
-	Personagem(const sf::Vector2f pos, const sf::Vector2f tam);
-	Personagem();
-	~Personagem();
+    Personagem(const sf::Vector2f pos, const sf::Vector2f tam);
+    Personagem();
+    ~Personagem();
     void andar(const bool paraEsquerda);
     void parar(); // Quando a tecla de movimento é soltada
     void atualizarPosicao();
     virtual void atualizar() = 0;
-	const sf::RectangleShape getCorpo();
 };
 

@@ -1,3 +1,29 @@
-﻿  Personagem.cpp
+﻿  Elemento.cpp
+  Entidade.cpp
+  GerenciadorEvento.cpp
+  Inimigo.cpp
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Inimigo.cpp(12,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Jogador.cpp
+  Jogo.cpp
+  Lista.cpp
+  ListaEntidade.cpp
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Lista.h(78,22): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Lista.h(72): message : ao compilar a função de membro 'void Lista<Entidade>::popPos(unsigned int)' do modelo da classe
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\ListaEntidade.cpp(20): message : consulte a referência à instanciação 'void Lista<Entidade>::popPos(unsigned int)' do modelo que está sendo compilada
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\ListaEntidade.h(8): message : consulte a referência à instanciação 'Lista<Entidade>' do modelo da classe que está sendo compilada
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Lista.h(23,15): warning C4018: '>': incompatibilidade de signed/unsigned
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Lista.h(22): message : ao compilar a função de membro 'TL *Lista<TL>::getItem(int)' do modelo da classe
+          with
+          [
+              TL=Entidade
+          ]
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\ListaEntidade.cpp(30): message : consulte a referência à instanciação 'TL *Lista<TL>::getItem(int)' do modelo que está sendo compilada
+          with
+          [
+              TL=Entidade
+          ]
+  Personagem.cpp
 C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Personagem.cpp(32,20): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+  Projeto Tecnicas de Programacao.cpp
+  Gerando Código...
   Projeto Tecnicas de Programacao.vcxproj -> C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Debug\Projeto Tecnicas de Programacao.exe

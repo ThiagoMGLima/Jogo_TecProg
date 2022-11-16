@@ -19,7 +19,7 @@ Personagem::~Personagem()
 void Personagem::andar(const bool paraEsquerda)
 {
     podeAndar = true;
-    this->paraEsquerda = paraEsquerda; 
+    this->paraEsquerda = paraEsquerda;
 }
 
 void Personagem::parar()
@@ -34,10 +34,4 @@ void Personagem::atualizarPosicao()
         vel *= -1;
     }
     body.move(vel, 0.0);
-}
-
-
-const sf::RectangleShape Personagem::getCorpo()
-{
-    return body;
 }

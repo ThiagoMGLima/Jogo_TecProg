@@ -12,5 +12,5 @@ public:
 	~Entidade();
 
 	const sf::RectangleShape getCorpo();
-
+	virtual void atualizar() = 0;
 };

@@ -1,5 +1,7 @@
 #pragma once
 #include "Elemento.h"
+#include <iostream>
+using namespace std;
 
 template <class TL>
 class Lista
@@ -7,15 +9,20 @@ class Lista
 private:
 	Elemento<TL>* pPrimeiro;
 	Elemento<TL>* pUltimo;
-	int len;
+	unsigned int len;
 public:
 	Lista();
 	~Lista();
 
-	int getLen() {
+	unsigned int getLen() {
 		return len;
 	}
+
+
 	TL* getItem(int posicao) {
+		if (posicao > len) {
+			return nullptr;
+		}
 		Elemento<TL>* temp = pPrimeiro;
 		if (posicao == 0)
 			return temp->getItem();
@@ -40,7 +47,7 @@ public:
 		len++;
 	}
 
-	void pop(TL* item) {
+	void popItem(TL* item) {
 		Elemento<TL>* temp = pPrimeiro;
 		Elemento<TL>* tempAnt = nullptr;
 
@@ -61,7 +68,32 @@ public:
 		delete temp;
 		len--;
 	}
+
+	void popPos(unsigned int pos) {
+		Elemento<TL>* temp = pPrimeiro;
+		Elemento<TL>* tempAnt = nullptr;
+
+		if (pos > 1)
+		{
+			for (int i = 0; i < pos; i++) {
+				tempAnt = temp;
+				temp = temp->getPProx();
+			}
+			tempAnt->setPProx(temp->getPProx());
+			delete temp;
+			len--;
+		}
+	}
+
+	Elemento<TL> getStart() {
+		return pPrimeiro;
+	}
+
+	Elemento<TL>getLast() {
+		return pUltimo;
+	}
 };
+
 
 template <class TL> inline Lista<TL>::Lista() {
 	pPrimeiro = nullptr;
@@ -69,5 +101,9 @@ template <class TL> inline Lista<TL>::Lista() {
 	len = 0;
 }
 template <class TL> inline Lista<TL>::~Lista() {
-
+	if (pPrimeiro != nullptr) {
+		pPrimeiro = nullptr;
+		pUltimo = nullptr;
+	}
+	len = 0;
 }

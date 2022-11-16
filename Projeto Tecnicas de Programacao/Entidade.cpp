@@ -12,4 +12,3 @@ const sf::RectangleShape Entidade::getCorpo()
 {
 	return body;
 }
-

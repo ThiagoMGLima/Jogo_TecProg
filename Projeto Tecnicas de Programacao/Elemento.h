@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 template <class TE> class Elemento
 {
 private:
@@ -10,14 +11,16 @@ public:
 	void setPProx(Elemento<TE>* pProx) {
 		this->pProx = pProx;
 	}
-	void setitem(TE*) {
+	void setitem(TE* item) {
 		this->item = item;
 	}
 	Elemento<TE>* getPProx() {
 		return pProx;
 	}
 	TE* getItem() {
-		return item;
+		if (item)
+			return item;
+		return nullptr;
 	}
 };
 

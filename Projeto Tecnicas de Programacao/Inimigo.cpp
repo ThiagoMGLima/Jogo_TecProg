@@ -54,7 +54,7 @@ void Inimigo::movimentoAle()
 
 	float dt = relogio.getElapsedTime().asSeconds();
 	if (dt >= 1.0f) {
-		moveAle = rand() % 4;
+		moveAle = rand() % 2; //2 -> so horizontal, 4 -> todas as direcoes
 		relogio.restart();
 	}
 }
@@ -71,4 +71,6 @@ void Inimigo::atualizar() {
 		movimentoAle();
 	}
 }
+
+
 
