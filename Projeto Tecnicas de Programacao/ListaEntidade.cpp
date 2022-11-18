@@ -38,6 +38,7 @@ void ListaEntidade::executar(sf::RenderWindow* window)
 	for (int i = 0; i < tam; i++) {
 		aux = objListaEntidade.getItem(i);
 		if (aux) { //verifica se aux nao e nulo
+			/// printf("Posicao entidade%d: %f, %f\n", i+ 1, aux->getCorpo().getPosition().x, aux->getCorpo().getPosition().y);
 			aux->atualizar();
 			window->draw(aux->getCorpo());
 		}

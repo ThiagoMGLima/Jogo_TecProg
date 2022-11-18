@@ -10,6 +10,10 @@ protected:
     sf::Vector2f velFinal;
     bool podeAndar;
     bool paraEsquerda;
+    // Se personagem pode realizar pulo
+    bool podePular;
+    // Se personagem ja está performando pulo
+    bool noAr;
     sf::Clock relogio;
     float dt;
 public:
@@ -18,6 +22,8 @@ public:
     ~Personagem();
     void andar(const bool paraEsquerda);
     void parar(); // Quando a tecla de movimento é soltada
+    void pular();
+    void cair();
     void atualizarPosicao();
     virtual void atualizar() = 0;
 };

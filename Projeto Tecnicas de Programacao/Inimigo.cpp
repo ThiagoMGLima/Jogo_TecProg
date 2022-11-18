@@ -7,7 +7,8 @@
 Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador) :
 	Personagem(pos, tam), relogio(), jogador(jogador)
 {
-	body.setFillColor(sf::Color::Red);
+	body.setFillColor(sf::Color::Blue);
+	body.setSize(tam);
 	Inicializa();
 	srand(time(NULL));
 	moveAle = rand() % 4;  //Movimento aleatorio caso nao saiba de nenhum jogador por perto
@@ -57,6 +58,11 @@ void Inimigo::movimentoAle()
 		moveAle = rand() % 2; //2 -> so horizontal, 4 -> todas as direcoes
 		relogio.restart();
 	}
+}
+
+void Inimigo::colisao(Entidade* entidadeColidida)
+{
+	podeAndar = false;
 }
 
 void Inimigo::atualizar() {

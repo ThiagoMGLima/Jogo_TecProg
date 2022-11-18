@@ -24,5 +24,6 @@ public:
     ~Inimigo();
     void segueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
     void movimentoAle();
+    void colisao(Entidade* entidadeColidida);
     void atualizar();
 };

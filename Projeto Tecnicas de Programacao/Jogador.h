@@ -4,7 +4,6 @@
 class Jogador :public Personagem {
 
 private:
-	bool ar;
 	void Inicializa();
 public:
 	Jogador();
@@ -12,4 +11,5 @@ public:
 	Jogador(sf::Vector2f pos, sf::Vector2f tam);
 	~Jogador();
 	void atualizar();
+	void colisao(Entidade* entidadeColidida);
 };

@@ -28,6 +28,9 @@ void NomeJogo::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyb
     else if (tecla == sf::Keyboard::D) {
         pJogador->andar(false);
     }
+    else if (tecla == sf::Keyboard::W) {
+        pJogador->pular();
+    }
     else if (tecla == sf::Keyboard::Escape) {
         pGrafico->FechaJanela();
     }

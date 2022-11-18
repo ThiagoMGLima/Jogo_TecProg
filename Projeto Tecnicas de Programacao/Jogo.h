@@ -1,6 +1,7 @@
 #pragma once
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEvento.h"
+#include "GerenciadorColisao.h"
 #include "Inimigo.h"
 #include "Jogador.h"
 #include "ListaEntidade.h"
@@ -11,6 +12,7 @@ private:
     // Gerenciadores
     NomeJogo::Gerenciador::GerenciadorGrafico* pGerenciadorGrafico;
     NomeJogo::Gerenciador::GerenciadorEvento* pGerenciadorEvento;
+    NomeJogo::Gerenciador::GerenciadorColisao gerenciadorColisao;
 
     ListaEntidade listaEnt;
 
