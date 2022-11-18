@@ -145,7 +145,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Chao.cpp" />
     <ClCompile Include="Elemento.cpp" />
+    <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="GerenciadorColisao.cpp" />
     <ClCompile Include="GerenciadorEvento.cpp" />
@@ -158,9 +160,12 @@
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Projeto Tecnicas de Programacao.cpp" />
+    <ClCompile Include="Terreno.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chao.h" />
     <ClInclude Include="Elemento.h" />
+    <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="GerenciadorColisao.h" />
     <ClInclude Include="GerenciadorEvento.h" />
@@ -172,6 +177,7 @@
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Terreno.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

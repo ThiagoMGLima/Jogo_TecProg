@@ -12,6 +12,7 @@ Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogado
 	Inicializa();
 	srand(time(NULL));
 	moveAle = rand() % 4;  //Movimento aleatorio caso nao saiba de nenhum jogador por perto
+	ID = "Inimigo";
 }
 
 Inimigo::~Inimigo()
@@ -76,6 +77,7 @@ void Inimigo::atualizar() {
 	else {
 		movimentoAle();
 	}
+	posAnt = body.getPosition();
 }
 
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Personagem.h"
+#include "SFML/Graphics.hpp"
 
 class Jogador :public Personagem {
 

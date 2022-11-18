@@ -1,5 +1,7 @@
 ﻿  Jogador.cpp
-  Personagem.cpp
-  Gerando Código...
-  LINK : C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Debug\Projeto Tecnicas de Programacao.exe não encontrado ou não compilado pelo o último link incremental; executando link completo
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Jogador.cpp(74,29): warning C4305: '=': truncamento de 'double' para 'T'
+          with
+          [
+              T=float
+          ]
   Projeto Tecnicas de Programacao.vcxproj -> C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Debug\Projeto Tecnicas de Programacao.exe

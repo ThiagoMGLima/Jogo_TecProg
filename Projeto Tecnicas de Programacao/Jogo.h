@@ -4,6 +4,8 @@
 #include "GerenciadorColisao.h"
 #include "Inimigo.h"
 #include "Jogador.h"
+#include "Chao.h"
+#include "Plataforma.h"
 #include "ListaEntidade.h"
 
 class Jogo

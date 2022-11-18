@@ -11,9 +11,11 @@ Personagem::Personagem()//constr sem parametros
     paraEsquerda = false;
     podePular = false;
     noAr = false;
+    posAnt = posicao;
     velFinal.x = 0.0;
     velFinal.y = 0.0;
     dt = 0.0;
+    ID = "Personagem";
 }
 
 Personagem::~Personagem()
@@ -34,7 +36,7 @@ void Personagem::parar()
 void Personagem::pular()
 {
     if (!noAr) {
-        velFinal.y = - 0.5f;
+        velFinal.y = - 0.55f;
         noAr = true;
     }
 }
@@ -59,19 +61,13 @@ void Personagem::atualizarPosicao()
             ds.x *= -1;
         }
     }
-    if ((body.getPosition().y) > 550.0f) {
-        noAr = false;
-    }
-    if (noAr == true) {
-        //sofre o efeito da gravidade
-        velFinal.y += dt * 1.0f;
-        ds.y = velFinal.y * 1.0f;
-        mudarPosicao(sf::Vector2f(body.getPosition().x + ds.x, body.getPosition().y + ds.y));
-    }
-    else {
-        mudarPosicao(sf::Vector2f(body.getPosition().x + ds.x, 550.0f));
-    }
+
+    //sofre o efeito da gravidade
+    velFinal.y += dt * 1.0f;
+    ds.y = velFinal.y * 1.0f;
+    posAnt = body.getPosition();
+    mudarPosicao(sf::Vector2f(body.getPosition().x + ds.x, body.getPosition().y + ds.y));
 
     //desenha na janela
-    desenhar();
+    pGerenciadorGrafico->desenhaNaTela(body);
 }

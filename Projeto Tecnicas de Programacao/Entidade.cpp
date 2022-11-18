@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade() :body(sf::Vector2f(100.f, 100.f)), pGerenciadorGrafico(pGerenciadorGrafico->getGerenciadorGrafico()) {
+Entidade::Entidade() :body(sf::Vector2f(100.f, 100.f)) {
 }
 
 Entidade::~Entidade()
@@ -18,13 +18,14 @@ const sf::Vector2f Entidade::getPosicao()
 	return posicao;
 }
 
+const sf::Vector2f Entidade::getPosAnt()
+{
+	return posAnt;
+}
+
 const sf::Vector2f Entidade::getTamanho()
 {
 	return tamanho;
-}
-
-void Entidade::desenhar() {
-	pGerenciadorGrafico->desenhaNaTela(body);
 }
 
 void Entidade::mudarPosicao(sf::Vector2f posicao)
