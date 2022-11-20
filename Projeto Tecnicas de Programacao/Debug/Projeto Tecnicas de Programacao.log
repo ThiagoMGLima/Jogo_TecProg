@@ -1,5 +1,6 @@
-﻿  Jogador.cpp
-C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Jogador.cpp(74,29): warning C4305: '=': truncamento de 'double' para 'T'
+﻿  Inimigo.cpp
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Inimigo.cpp(12,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Inimigo.cpp(90,20): warning C4305: '=': truncamento de 'double' para 'T'
           with
           [
               T=float

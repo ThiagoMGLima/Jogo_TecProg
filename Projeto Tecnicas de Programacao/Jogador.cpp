@@ -39,11 +39,11 @@ void Jogador::colisao(Entidade* entidadeColidida)
 {
     if (entidadeColidida->getID() == "Inimigo") {
         if (!paraEsquerda) {
-            body.move(sf::Vector2f(-0.1f, -0.1f));
+            body.move(sf::Vector2f(-0.6f, -0.3f));
             entidadeColidida->mudarPosicao(entidadeColidida->getPosAnt());
         }
         else {
-            body.move(sf::Vector2f(0.1f, 0.1f));
+            body.move(sf::Vector2f(0.6f, -0.3f));
             entidadeColidida->mudarPosicao(entidadeColidida->getPosAnt());
         }
     }

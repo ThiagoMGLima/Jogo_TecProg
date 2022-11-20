@@ -25,6 +25,7 @@ Personagem::~Personagem()
 void Personagem::andar(const bool paraEsquerda)
 {
     podeAndar = true;
+    velFinal.x = 100;
     this->paraEsquerda = paraEsquerda;
 }
 
@@ -50,13 +51,11 @@ void Personagem::atualizarPosicao()
 {
     dt = relogio.getElapsedTime().asSeconds();
     relogio.restart();
-    // printf("Valor Dt: %f\n", dt);
-    // printf("Velocidade Y: %f\n", velFinal.y);
     sf::Vector2f ds(0.0f, 0.0f);
 
     //move na horizontal
     if (podeAndar) {
-        ds.x = 100 * dt;
+        ds.x = velFinal.x * dt;
         if (paraEsquerda) {
             ds.x *= -1;
         }

@@ -17,7 +17,7 @@ void Jogo::InstaciarEntidades() {
     Jogador* jogador = new Jogador(sf::Vector2f(100.0f, 200.0f), sf::Vector2f(50.0f, 50.0f));
     jogador->mudarPosicao(sf::Vector2f(0.0f, 450.0f));
 
-    Inimigo* inimigo1 = new Inimigo(sf::Vector2f(100.0f, 450.0f), sf::Vector2f(50.0f, 50.0f), jogador);
+    Inimigo* inimigo1 = new Inimigo(sf::Vector2f(220, 350.0f), sf::Vector2f(50.0f, 50.0f), jogador);
 
     Chao* chao = new Chao("Chao", sf::Vector2f(800.0f, 100.0f), sf::Vector2f(0.0f, 500.0f));
     Plataforma* plataforma1 = new Plataforma("Plataforma", sf::Vector2f(180.0f, 400.0f), sf::Vector2f(100.0f, 20.0f));

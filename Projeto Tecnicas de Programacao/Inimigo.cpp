@@ -1,6 +1,5 @@
 #include "Inimigo.h"
 #include "Jogador.h"
-
 #include <cmath>
 
 
@@ -25,33 +24,29 @@ void Inimigo::Inimigo::Inicializa() {
 
 void Inimigo::segueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 {
+	podeAndar = true;
+	velFinal.x = 30.0f;
 	if (posJogador.x <= posInimigo.x) {
-		body.move(vel.x, 0.0f);
+		paraEsquerda = false;
+		atualizarPosicao();
 	}
 	else {
-		body.move(-vel.x, 0.0f);
-	}
-	if (posJogador.y <= posInimigo.y) {
-		body.move(0.0f, vel.y);
-	}
-	else {
-		body.move(0.0f, -vel.y);
+		paraEsquerda = true;
+		atualizarPosicao();
 	}
 }
 
 void Inimigo::movimentoAle()
 {
+	podeAndar = true;
+	velFinal.x = 30.0f;
 	if (moveAle == 0) {
-		body.move(vel.x, 0.0f);
+		paraEsquerda = false;
+		atualizarPosicao();
 	}
 	else if (moveAle == 1) {
-		body.move(-vel.x, 0.0f);
-	}
-	else if (moveAle == 2) {
-		body.move(0.0f, vel.y);
-	}
-	else {
-		body.move(0.0f, -vel.y);
+		paraEsquerda = true;
+		atualizarPosicao();
 	}
 
 	float dt = relogio.getElapsedTime().asSeconds();
@@ -63,7 +58,38 @@ void Inimigo::movimentoAle()
 
 void Inimigo::colisao(Entidade* entidadeColidida)
 {
-	podeAndar = false;
+	if (entidadeColidida->getID() == "Chao") {
+		// Caso o Jogador esteja colidindo por cima, ou seja, caindo por cima pra plataforma
+		if ((body.getPosition().y + body.getSize().y / 2) < entidadeColidida->getCorpo().getPosition().y) {
+			body.setPosition(sf::Vector2f(body.getPosition().x, entidadeColidida->getCorpo().getPosition().y - body.getSize().y));
+			noAr = false;
+			velFinal.y = 0.0;
+		}
+	}
+	else if (entidadeColidida->getID() == "Plataforma") {
+		// Caso o Jogador esteja colidindo por cima, ou seja, caindo por cima pra plataforma
+		if ((body.getPosition().y + body.getSize().y / 2) < entidadeColidida->getCorpo().getPosition().y) {
+			printf("Inimigo colidiu plataforma\n");
+			body.setPosition(sf::Vector2f(body.getPosition().x, entidadeColidida->getCorpo().getPosition().y - body.getSize().y));
+			velFinal.y = 0.0;
+			noAr = false;
+		}
+		else if ((body.getPosition().y + body.getSize().y / 2) > entidadeColidida->getCorpo().getPosition().y && 
+			body.getPosition().y - body.getSize().y / 2 < entidadeColidida->getCorpo().getPosition().y) {
+			velFinal.y = -0.3f;
+			noAr = true;
+			atualizarPosicao();
+		}
+		// Caso o jogador bata nas laterais ou na parte de baixo de alguma plataforma
+		else {
+			body.setPosition(posAnt);
+			if (!paraEsquerda)
+				body.move(sf::Vector2f(-0.1f, -0.1f));
+			else
+				body.move(sf::Vector2f(0.1f, 0.1f));
+			velFinal.y = 0.3;
+		}
+	}
 }
 
 void Inimigo::atualizar() {
