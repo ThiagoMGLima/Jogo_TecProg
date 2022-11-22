@@ -1,20 +1,18 @@
 #include "Chao.h"
 
-Chao::Chao()
-{
-}
 
-Chao::Chao(string ID, sf::Vector2f tam, sf::Vector2f pos)
+Chao::Chao(const sf::Vector2f tam, const sf::Vector2f pos, const char* caminhoTextura) :
+	Terreno(pos, tam, Id::id::chao)
 {
-	// ID
-	this->ID = ID;
+
 	// Tamanho
 	body.setSize(tam);
 	tamanho = tam;
 	// Posicao
 	body.setPosition(pos);
 	posicao = tam;
-	body.setFillColor(sf::Color::White);
+	textura = pGerenciadorGrafico->CarregarTextura(caminhoTextura);
+	body.setTexture(&textura);
 
 }
 

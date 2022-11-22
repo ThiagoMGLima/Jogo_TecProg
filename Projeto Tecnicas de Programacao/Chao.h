@@ -3,10 +3,8 @@
 class Chao :public Terreno {
 private:
 public:
-	Chao();
-	Chao(string ID, sf::Vector2f tam, sf::Vector2f pos);
+	Chao(sf::Vector2f tam, sf::Vector2f pos, const char* caminhoTextura);
 	~Chao();
 	void colisao(Entidade* entidadeColidida);
 	void atualizar();
 };
-

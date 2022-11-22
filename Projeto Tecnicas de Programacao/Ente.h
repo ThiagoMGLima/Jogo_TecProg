@@ -1,21 +1,22 @@
-#include <string>
+#pragma once
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
 #include "GerenciadorGrafico.h"
+#include "Id.h"
 
-using std::string;
+class Ente {
 
-class Ente
-{
 protected:
 	// ID para identificar o Ente
-	string ID;
+	const Id::id id;
 	// Gerenciador Grafico
 	NomeJogo::Gerenciador::GerenciadorGrafico* pGerenciadorGrafico;
 
+
 public:
-	Ente();
-	Ente(string ID);
+	const Ente(const Id::id id);
 	~Ente();
 	virtual void atualizar() = 0;
-	void setID(string ID);
-	const string getID();
+	const Id::id getID() const;
 };

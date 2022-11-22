@@ -3,10 +3,10 @@
 class Terreno :
     public Entidade
 {
-public:
 protected:
-    Terreno();
+    sf::Texture textura;
+public:
+    Terreno(const sf::Vector2f pos, const sf::Vector2f tam, const Id::id id);
     ~Terreno();
     virtual void atualizar() = 0;
 };
-

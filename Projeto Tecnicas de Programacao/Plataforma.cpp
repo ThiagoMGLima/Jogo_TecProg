@@ -5,21 +5,22 @@ void Plataforma::atualizar()
 	pGerenciadorGrafico->desenhaNaTela(body);
 }
 
-Plataforma::Plataforma()
-{
-}
 
-Plataforma::Plataforma(string ID, sf::Vector2f pos, sf::Vector2f tam)
+Plataforma::Plataforma(Id::id id, sf::Vector2f pos, sf::Vector2f tam, const char* caminhoTextura) :
+	Terreno(pos, tam, Id::id::plataforma)
 {
-	// ID da plataforma
-	this->ID = ID;
+
+	textura = pGerenciadorGrafico->CarregarTextura(caminhoTextura);
+	body.setTexture(&textura);
+
 	// Posicao da plataforma
 	body.setPosition(pos);
 	posicao = pos;
+
 	// Tamanho da plataforma
 	body.setSize(tam);
 	tamanho = tam;
-	body.setFillColor(sf::Color::White);
+
 }
 
 Plataforma::~Plataforma()

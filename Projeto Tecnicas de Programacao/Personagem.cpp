@@ -1,22 +1,18 @@
 #include "Personagem.h"
 
-Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam) //contrutora com parametros posicao e tamanho
-{
-    body.setPosition(pos);
-}
 
-Personagem::Personagem()//constr sem parametros 
+
+Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const Id::id id) :
+    Entidade(pos, tam, id), podeAndar(false), paraEsquerda(false), relogio(), dt(0.0f), velFinal(sf::Vector2f(0.0f, 0.0f)), animacao(&body), atacando(false)
+    //contrutora com parametros posicao e tamanho
 {
-    podeAndar = false;
-    paraEsquerda = false;
     podePular = false;
     noAr = false;
     posAnt = posicao;
-    velFinal.x = 0.0;
-    velFinal.y = 0.0;
-    dt = 0.0;
-    ID = "Personagem";
+
 }
+
+
 
 Personagem::~Personagem()
 {
@@ -25,26 +21,26 @@ Personagem::~Personagem()
 void Personagem::andar(const bool paraEsquerda)
 {
     podeAndar = true;
-    velFinal.x = 100;
+    velFinal.x = 200;
     this->paraEsquerda = paraEsquerda;
 }
 
 void Personagem::parar()
 {
     podeAndar = false;
+    atacando = false;
 }
 
-void Personagem::pular()
-{
-    if (!noAr) {
-        velFinal.y = - 0.55f;
-        noAr = true;
-    }
-}
 
 void Personagem::cair()
 {
     podePular = false;
+}
+
+void Personagem::atacar(const bool atacando)
+{
+    podeAndar = false;
+    this->atacando = atacando;
 }
 
 void Personagem::atualizarPosicao()
@@ -67,6 +63,16 @@ void Personagem::atualizarPosicao()
     posAnt = body.getPosition();
     mudarPosicao(sf::Vector2f(body.getPosition().x + ds.x, body.getPosition().y + ds.y));
 
+
     //desenha na janela
-    pGerenciadorGrafico->desenhaNaTela(body);
+    desenha();
+}
+
+void Personagem::atualizarAnimacao() {
+    if (podeAndar) {
+        animacao.atualizar(paraEsquerda, "ANDA");
+    }
+    else {
+        animacao.atualizar(paraEsquerda, "PARADO");
+    }
 }

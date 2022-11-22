@@ -1,16 +1,19 @@
 #pragma once
 #include "Personagem.h"
-#include "SFML/Graphics.hpp"
+
+#define VELOCIDADE_JOGADOR 350.0f
+#define TAMANHO_JOGADOR_X 40.0f
+#define TAMANHO_JOGADOR_Y 60.0f
 
 class Jogador :public Personagem {
 
 private:
 	void Inicializa();
 public:
-	Jogador();
-	Jogador(const sf::RectangleShape body);
-	Jogador(sf::Vector2f pos, sf::Vector2f tam);
+	Jogador(sf::Vector2f pos);
 	~Jogador();
-	void atualizar();
+	void atualizar(); //certo
+	void Pular();
+	void atualizarAnimacao(); //certo
 	void colisao(Entidade* entidadeColidida);
 };

@@ -15,5 +15,3 @@ public:
 	Entidade* operator[](int pos);
 	void executar(sf::RenderWindow* window);
 };
-
-

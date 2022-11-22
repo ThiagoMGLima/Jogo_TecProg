@@ -11,6 +11,7 @@ namespace NomeJogo {
         class GerenciadorColisao {
         private:
             ListaEntidade* listaPersonagem;
+
         public:
             GerenciadorColisao(ListaEntidade* listaPersonagem);
             ~GerenciadorColisao();

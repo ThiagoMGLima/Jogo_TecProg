@@ -2,6 +2,9 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 
+#define TELA_X 1200.0f
+#define TELA_Y 
+
 namespace NomeJogo {
 	namespace Gerenciador {
 
@@ -11,6 +14,9 @@ namespace NomeJogo {
 		private:
 
 			sf::RenderWindow* window;
+
+			//Camera
+			sf::View camera;
 			static GerenciadorGrafico* pGerenciadorGrafico;
 
 			// Função construtora da classe em privado
@@ -27,6 +33,9 @@ namespace NomeJogo {
 			void mostrarNaTela();
 			void FechaJanela();
 			bool verificaJanelaAberta();
+			sf::Texture CarregarTextura(const char* caminhoTextura);
+			void moveCamera(const sf::Vector2f posJogador);
+			const sf::View getCamera();
 		};
 	}
 }

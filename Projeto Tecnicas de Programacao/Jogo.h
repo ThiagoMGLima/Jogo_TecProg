@@ -8,6 +8,7 @@
 #include "Plataforma.h"
 #include "ListaEntidade.h"
 
+
 class Jogo
 {
 private:

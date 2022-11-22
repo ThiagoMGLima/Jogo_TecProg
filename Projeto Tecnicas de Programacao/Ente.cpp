@@ -1,25 +1,15 @@
-
 #include "Ente.h"
 
-Ente::Ente(): pGerenciadorGrafico(pGerenciadorGrafico->getGerenciadorGrafico())
+Ente::Ente(const Id::id id) :
+	id(id), pGerenciadorGrafico(pGerenciadorGrafico->getGerenciadorGrafico())
 {
-}
-
-Ente::Ente(string ID)
-{
-	ID = ID;
 }
 
 Ente::~Ente()
 {
 }
 
-const string Ente::getID()
+const Id::id Ente::getID() const
 {
-	return ID;
-}
-
-void Ente::setID(string ID)
-{
-	this->ID = ID;
+	return id;
 }

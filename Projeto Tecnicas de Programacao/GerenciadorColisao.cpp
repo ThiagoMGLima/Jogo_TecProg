@@ -41,12 +41,17 @@ void NomeJogo::Gerenciador::GerenciadorColisao::executar() {
     */
 
     // Laço de repetição para passar por todos os personagens e verificar se há colisão entre Jogador e Inimigo
-    for (int i = 0; i < listaPersonagem->lenEnt(); i++) {
+    for (int i = 0; i < listaPersonagem->lenEnt() - 1; i++) {
         Entidade* entidade1 = listaPersonagem->operator[](i);
+        sf::Vector2f posAux(fabs(entidade1->getCorpo().getPosition().x), entidade1->getPosicao().y);
+        if (entidade1->getCorpo().getPosition().x < 0.0) {
+            entidade1->mudarPosicao(posAux);
+        }
         for (int j = i + 1; j < listaPersonagem->lenEnt(); j++) {
             Entidade* entidade2 = listaPersonagem->operator[](j);
             // Calculando a distância entre as entidades
             verificaColisao(entidade1, entidade2);
+            verificaColisao(entidade2, entidade1);
         }
     }
 }
