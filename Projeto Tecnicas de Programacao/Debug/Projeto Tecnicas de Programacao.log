@@ -1,2 +1,9 @@
-﻿  Inimigo.cpp
+﻿  Jogador.cpp
+C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Jogador.cpp(50,31): warning C4305: '=': truncamento de 'double' para 'T'
+          with
+          [
+              T=float
+          ]
+  Jogo.cpp
+  Gerando Código...
   Projeto Tecnicas de Programacao.vcxproj -> C:\Users\Jooj\Documents\Faculdade\Projeto Tecnicas de Programacao\Projeto Tecnicas de Programacao\Debug\Projeto Tecnicas de Programacao.exe

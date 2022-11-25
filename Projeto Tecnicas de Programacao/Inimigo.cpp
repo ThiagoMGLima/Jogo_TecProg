@@ -23,8 +23,9 @@ void Inimigo::Inimigo::Inicializa() {
 	animacao.addAnimacao("C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Inimigo/Skeleton/Idle.png", "PARADO", 4, 0.15f, sf::Vector2f(7.5, 3.5));
 	animacao.addAnimacao("C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Inimigo/Skeleton/Idle.png", "PULA", 4, 0.07f, sf::Vector2f(7.5, 3.5));
 	animacao.addAnimacao("C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Inimigo/Skeleton/Walk.png", "CORRE", 4, 0.18f, sf::Vector2f(7.5, 3.5));
-	animacao.addAnimacao("C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Inimigo/Skeleton/Attack3.png", "ATACA", 6, 0.18f, sf::Vector2f(7.5, 3.5));
+	animacao.addAnimacao("C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Inimigo/Skeleton/Attack3.png", "ATACA", 6, 0.06f, sf::Vector2f(7.5, 3.5));
 	animacao.addAnimacao("C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Inimigo/Skeleton/Idle.png", "CAI", 4, 0.07f, sf::Vector2f(7.5, 3.5));
+	animacao.addAnimacao("C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Inimigo/Skeleton/Death.png", "MORRE", 4, 0.15f, sf::Vector2f(7.5, 3.5));
 	body.setOrigin(sf::Vector2f(tamanho.x / 2.25f, tamanho.y / 2.55f));
 }
 
@@ -79,13 +80,30 @@ void Inimigo::movimentoAle()
 
 void Inimigo::colisao(Entidade* entidadeColidida)
 {
-	if (entidadeColidida->getID() == Id::id::jogador) {
-		atacando = true;
+	if (fabs(jogador->getCorpo().getPosition().x - body.getPosition().x) < 150.0f &&
+		fabs(jogador->getCorpo().getPosition().y - body.getPosition().y) < 1.0f && jogador->estaAtacando()) {
 		tempoAtaque = relogio.getElapsedTime().asSeconds();
-		printf("%f\n", tempoAtaque);
+		if (tempoAtaque > 1) {
+			vida -= 2.5;
+			tempoAtaque = 0.0;
+			relogio.restart();
+		}
+	}
+
+	if (entidadeColidida->getID() == Id::id::jogador) {
+		tempoAtaque = relogio.getElapsedTime().asSeconds();
+		if (tempoAtaque > 1 && jogador->getVida() > 0) {
+			jogador->setVida(jogador->getVida() - 2);
+			if (jogador->getVida() <= 0)
+				podeAndar = false;
+				atacando = false;
+			tempoAtaque = 0.0;
+			relogio.restart();
+		}
+
 	}
 	else if (entidadeColidida->getID() == Id::id::chao) {
-		// Caso o Jogador esteja colidindo por cima, ou seja, caindo por cima pra plataforma
+		// Caso od Jogador esteja colidindo por cima, ou seja, caindo por cima pra plataforma
 		if ((body.getPosition().y + body.getSize().y / 2) < entidadeColidida->getCorpo().getPosition().y) {
 			body.setPosition(sf::Vector2f(body.getPosition().x, entidadeColidida->getCorpo().getPosition().y - body.getSize().y));
 			noAr = false;
@@ -115,9 +133,6 @@ void Inimigo::colisao(Entidade* entidadeColidida)
 			velFinal.y = 0.3f;
 		}
 	}
-	else {
-		printf("Colidiu player\n");
-	}
 }
 
 void Inimigo::atualizar() {
@@ -139,7 +154,27 @@ void Inimigo::atualizar() {
 }
 
 void Inimigo::atualizaAnimacao() {
-	if (atacando) {
+
+	if (fabs(jogador->getCorpo().getPosition().x - body.getPosition().x) < 72.0f &&
+		fabs(jogador->getCorpo().getPosition().y - body.getPosition().y) < 1.0f &&
+		vida > 0 && jogador->getVida() > 0) {
+		atacando = true;
+	}
+	else {
+		atacando = false;
+	}
+
+	if (vida <= 0) {
+		animacao.atualizar(paraEsquerda, "MORRE");
+		// Esperando a animação de morte se encerrar para remover o inimigo do cenário
+		tempoAtaque = relogio.getElapsedTime().asSeconds();
+		if (tempoAtaque > 0.5) {
+			podeAndar = false;
+			body.setPosition(sf::Vector2f(1000.f, 1000.f));
+			relogio.restart();
+		}
+	}
+	else if (atacando) {
 		animacao.atualizar(paraEsquerda, "ATACA");
 	}
 	else if (noAr && velFinal.y > 0.0f) {

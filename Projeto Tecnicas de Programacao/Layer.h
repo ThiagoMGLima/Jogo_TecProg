@@ -6,18 +6,17 @@
 class Layer
 {
 private:
-	sf::Texture textura;
-	sf::RectangleShape fundo;
-	sf::RectangleShape fundo2;
-	const sf::Vector2f jTamanho;
-	sf::IntRect dimensao;
-	const float vel;
+    sf::Texture textura;
+    sf::RectangleShape fundo;
+    sf::RectangleShape fundo2;
+    const sf::Vector2f jTamanho;
+    sf::IntRect dimensao;
+    const float vel;
 
-	void mudarTextura();
+    void mudarTextura();
 public:
-	Layer(const sf::Vector2f jTamanho, sf::Texture textura, const float vel);
-	~Layer();
-	void drawLayer(sf::RenderWindow* window);
-	void atualizar(const sf::Vector2f ds, const sf::Vector2f posCamera);
+    Layer(const sf::Vector2f jTamanho, sf::Texture textura, const float vel);
+    ~Layer();
+    void drawLayer(sf::RenderWindow* window);
+    void atualizar(const sf::Vector2f ds, const sf::Vector2f posCamera);
 };
-

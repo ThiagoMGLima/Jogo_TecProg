@@ -18,7 +18,6 @@ private:
     short moveAle;
     void Inicializa();
     sf::Clock relogio;
-    float tempoAtaque;
 
 public:
     void movimentoAle();

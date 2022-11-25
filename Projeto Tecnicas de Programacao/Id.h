@@ -6,10 +6,12 @@ namespace Id {
         vazio = 0,
         jogador,
         plataforma,
-        fase_florestaEscarlate,
-        fundo_florestaEscarlate,
+        fase_Montanha,
+        fundo_Montanha,
+        fase2,
         chao,
-        Inimigo
+        Inimigo,
+        espinhos
     };
 
 }

@@ -19,7 +19,9 @@ protected:
     sf::Clock relogio;
     float dt;
     bool atacando;
-    int vida;
+    float vida;
+    float tempoAtaque;
+    float tempoMorte;
     virtual void atualizarAnimacao();
 public:
     Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const Id::id id);
@@ -28,7 +30,10 @@ public:
     void parar(); // Quando a tecla de movimento é soltada
     void cair();
     void atacar(const bool atacando);
+    int getVida();
+    void setVida(int vida);
     void atualizarPosicao();
+    bool estaAtacando();
     virtual void atualizar() = 0;
 
 };

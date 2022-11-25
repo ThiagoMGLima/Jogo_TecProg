@@ -6,7 +6,8 @@ Jogo::Jogo() :
     listaEnt(),
     pGerenciadorGrafico(pGerenciadorGrafico->getGerenciadorGrafico()),
     pGerenciadorEvento(pGerenciadorEvento->getGerenciadorEvento()),
-    gerenciadorColisao(&listaEnt)
+    gerenciadorColisao(&listaEnt),
+    parallax(Id::id::fundo_Montanha)
 {
     if (pGerenciadorGrafico == nullptr) {
         std::cout << "ERROR::NomeJogo::Principal nao foi possivel criar o GerenciadorGrafico" << std::endl;
@@ -33,12 +34,12 @@ void Jogo::InstaciarEntidades() {
     Inimigo* inimigo2 = new Inimigo(sf::Vector2f(560, 300.0f), sf::Vector2f(40.0f, 60.0f), jogador, Id::id::Inimigo);
 
     //cria terrenos (ID,tam,posicao,textura)
-    Chao* chao = new Chao(sf::Vector2f(1200.0f, 100.0f), sf::Vector2f(0.0f, 600.0f), "C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Plataforma/Chao.png");
+    Chao* chao = new Chao(sf::Vector2f(4800.0f, 150.0f), sf::Vector2f(0.0f, 600.0f), "C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Plataforma/Chao.png");
 
     Plataforma* plataforma1 = new Plataforma(Id::id::plataforma, sf::Vector2f(180.0f, 400.0f), sf::Vector2f(100.0f, 20.0f), "C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Plataforma/Plataforma.png");
     Plataforma* plataforma2 = new Plataforma(Id::id::plataforma, sf::Vector2f(380.0f, 430.0f), sf::Vector2f(100.0f, 20.0f), "C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Plataforma/pedra.jpg");
     Plataforma* plataforma3 = new Plataforma(Id::id::plataforma, sf::Vector2f(580.0f, 460.0f), sf::Vector2f(100.0f, 20.0f), "C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Plataforma/pedra.jpg");
-    Plataforma* plataforma4 = new Plataforma(Id::id::plataforma, sf::Vector2f(-300.0f, 0.0f), sf::Vector2f(400.0f, 130.0f), "C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Pasta/image.png");
+    Espinhos* plataforma4 = new Espinhos(Id::id::espinhos, sf::Vector2f(300.0f, 570.0f), sf::Vector2f(100.0f, 30.0f), "C:/Users/Jooj/Documents/Faculdade/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Projeto Tecnicas de Programacao/Plataforma/espinhos.png");
 
     Entidade* e1 = static_cast<Entidade*>(jogador);
     Entidade* e2 = static_cast<Entidade*>(inimigo1);
@@ -66,10 +67,11 @@ void Jogo::Executar()
     {
         //gerencia eventos
         pGerenciadorEvento->executar();
-
+        parallax.executar();
         //Limpa janela
-        pGerenciadorGrafico->LimparJanela();
 
+    
+        pGerenciadorGrafico->LimparJanela();
         //Executa entidades
         listaEnt.executar(pGerenciadorGrafico->getWindow());
         //Executa Ger de Colisao

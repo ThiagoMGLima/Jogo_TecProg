@@ -9,6 +9,8 @@ Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const flo
     podePular = false;
     noAr = false;
     posAnt = posicao;
+    this->vida = vida;
+    vida = 6;
 
 }
 
@@ -41,6 +43,20 @@ void Personagem::atacar(const bool atacando)
 {
     podeAndar = false;
     this->atacando = atacando;
+}
+
+int Personagem::getVida()
+{
+    return vida;
+}
+
+void Personagem::setVida(int vida) {
+    this->vida = vida;
+}
+
+bool Personagem::estaAtacando()
+{
+    return atacando;
 }
 
 void Personagem::atualizarPosicao()

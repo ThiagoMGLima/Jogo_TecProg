@@ -150,6 +150,7 @@
     <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Espinhos.cpp" />
     <ClCompile Include="GerenciadorColisao.cpp" />
     <ClCompile Include="GerenciadorEvento.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Espinhos.h" />
     <ClInclude Include="GerenciadorColisao.h" />
     <ClInclude Include="GerenciadorEvento.h" />
     <ClInclude Include="GerenciadorGrafico.h" />

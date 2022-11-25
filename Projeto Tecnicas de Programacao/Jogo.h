@@ -6,8 +6,9 @@
 #include "Jogador.h"
 #include "Chao.h"
 #include "Plataforma.h"
+#include "Espinhos.h"
 #include "ListaEntidade.h"
-
+#include "Parallax.h"
 
 class Jogo
 {
@@ -16,6 +17,7 @@ private:
     NomeJogo::Gerenciador::GerenciadorGrafico* pGerenciadorGrafico;
     NomeJogo::Gerenciador::GerenciadorEvento* pGerenciadorEvento;
     NomeJogo::Gerenciador::GerenciadorColisao gerenciadorColisao;
+    Parallax parallax;
 
     ListaEntidade listaEnt;
 
